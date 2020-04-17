@@ -2,10 +2,9 @@
 # -*- coding: UTF-8 -*-
 
 import gmpy2
-import math
 import time
 from datetime import datetime
-from gmpy2 import mpq, mpz, sqrt, ceil
+from gmpy2 import mpq, mpz, sqrt, ceil, isqrt
 from sys import argv
 
 def square(x,n):
@@ -18,7 +17,7 @@ def square(x,n):
            k+=1
 
 def MethodFerma(n):
-    x = ceil(sqrt(n))
+    x = isqrt(n) + 1
     y, k = square(x,n)
     a = mpz(x) + mpz(k) + mpz(y)
     b = mpz(x) + mpz(k) - mpz(y)
@@ -34,7 +33,6 @@ if __name__ == '__main__':
            print("[ Factor: a - b = ", mpz(b), "] \n")
            print("[ Count: k = ", mpz(k), "] \n")
            print("Time: ", end)
-
        else:
            print("[Error] Your number is even")
 
